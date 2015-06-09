@@ -2,7 +2,6 @@ var http = require('http');
 var concat = require('concat-stream');
 var urls = new Array(3);
 var gCount = 0;
-var i = 0;
 
 for(var i = 0; i < 3; i++) {
   ProcessData(i);
