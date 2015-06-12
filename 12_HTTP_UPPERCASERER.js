@@ -1,13 +1,12 @@
 var http = require('http');
-//var fs = require('fs');
-var map = require('through2-map')
+var map = require('through2-map');
 
-//.toUpperCase();
 var server = http.createServer(function (req, res) {
-  //fs.createReadStream(process.argv[3]).pipe(res).toUpperCase();
-  var upper = map(function (req) {
-
-  });
+  if(req.method == 'POST') {
+    req.pipe(map (function (req) {
+      return req.toString().toUpperCase();
+    })).pipe(res);
+  }
 });
 
 server.listen(Number(process.argv[2]));
